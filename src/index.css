@@ -17,11 +17,6 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-color: antiquewhite;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }
 
 img,
@@ -65,4 +60,12 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+#root {
+  background-color: rgb(229, 233, 243);
+  min-height: 100vh;
+  display: flex;
+
+  width: 100%;
 }

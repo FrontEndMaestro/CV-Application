@@ -1,0 +1,17 @@
+.input-wrapper {
+  display: flex;
+  gap: 3rem;
+  flex: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+}
+
+form {
+  margin: auto 0;
+}

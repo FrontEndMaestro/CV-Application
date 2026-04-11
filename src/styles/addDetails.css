@@ -1,0 +1,40 @@
+.add-details-wrapper {
+  --input-bg: rgb(229, 233, 243);
+  background-color: white;
+  flex: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  border-radius: 0px 20px 0px 0px;
+}
+
+.progress-bar {
+  height: 0.25em;
+  display: inline-block;
+  width: 100%;
+  background-color: var(--input-bg);
+}
+
+.progress-bar .progress {
+  width: 25%;
+  height: 100%;
+  background-color: red;
+}
+
+button {
+  background-color: rgb(26, 145, 240);
+  outline: none;
+  border: none;
+  width: 20%;
+  margin-bottom: 3vw;
+  padding: 15px 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: rgb(2, 133, 241);
+  cursor: grab;
+}
