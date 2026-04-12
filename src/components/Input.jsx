@@ -1,10 +1,13 @@
 import "../styles/Input.css";
 
 export default function Input({ name, labelText, type }) {
+  const required =
+    type == "email" || name.endsWith("name") || type == "tel" ? true : false;
   return (
     <label for={name}>
       <p>
         {labelText}
+        {required ? "*" : null}
         {labelText == "Linkedin" || labelText == "Github" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +27,14 @@ export default function Input({ name, labelText, type }) {
         ) : null}
       </p>
 
-      <input name={name} id={name} type={type}></input>
+      <input
+        name={name}
+        id={name}
+        type={type}
+        required={required}
+        maxLength={type == "tel" ? "16" : null}
+        pattern={type == "tel" ? "^\\+([0-9]{1,4})[-\\s]?([0-9]{1,15})$" : null}
+      ></input>
     </label>
   );
 }

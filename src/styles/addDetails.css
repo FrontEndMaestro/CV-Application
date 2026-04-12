@@ -22,19 +22,3 @@
   height: 100%;
   background-color: red;
 }
-
-button {
-  background-color: rgb(26, 145, 240);
-  outline: none;
-  border: none;
-  width: 20%;
-  margin-bottom: 3vw;
-  padding: 15px 10px;
-  color: white;
-  border-radius: 10px;
-}
-
-button:hover {
-  background-color: rgb(2, 133, 241);
-  cursor: grab;
-}

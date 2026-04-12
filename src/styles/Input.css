@@ -10,7 +10,7 @@ input {
 label {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 40%;
 }
 
 input:focus {
@@ -22,3 +22,9 @@ label p {
   gap: 0.2vw;
   align-items: center;
 }
+
+input:user-invalid {
+  border: 2px solid rgb(248, 133, 133);
+}
+
+
