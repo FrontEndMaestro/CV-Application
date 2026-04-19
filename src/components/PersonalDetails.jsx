@@ -1,6 +1,26 @@
 import "../styles/personalDetails.css";
 import Input from "./Input";
-export default function PersonalDetails() {
+export default function PersonalDetails({ setSelected }) {
+  function formSubmission(event) {
+    event.preventDefault();
+    let span = document.querySelector(".missing-error");
+    let emailInput = document.querySelector("form input[type=email]");
+    let firstNameInput = document.querySelector(" #first-name");
+    let lastNameInput = document.querySelector(" #last-name");
+
+    if (
+      emailInput.validity.valueMissing ||
+      firstNameInput.validity.valueMissing ||
+      lastNameInput.validity.valueMissing
+    ) {
+      span.style.opacity = "1";
+    }
+
+    if (document.querySelector("form").checkValidity()) {
+      setSelected("education");
+    }
+  }
+
   return (
     <form>
       <h1>Personal Details</h1>
@@ -26,22 +46,4 @@ export default function PersonalDetails() {
       </button>
     </form>
   );
-}
-
-function formSubmission(event) {
-  event.preventDefault();
-  let span = document.querySelector(".missing-error");
-  let emailInput = document.querySelector("form input[type=email]");
-  let firstNameInput = document.querySelector(" #first-name");
-  let lastNameInput = document.querySelector(" #last-name");
-
-  if (
-    emailInput.validity.valueMissing ||
-    firstNameInput.validity.valueMissing ||
-    lastNameInput.validity.valueMissing
-  ) {
-    span.style.opacity = "1";
-  }
-
-  //document.querySelector("form").checkValidity;
 }

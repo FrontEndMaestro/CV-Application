@@ -33,7 +33,12 @@ export default function Input({ name, labelText, type }) {
         type={type}
         required={required}
         maxLength={type == "tel" ? "16" : null}
-        pattern={type == "tel" ? "^\\+([0-9]{1,4})[-\\s]?([0-9]{1,15})$" : null}
+        pattern={type == "tel" ? "\\+?[0-9][0-9]{7,14}" : null}
+        title={
+          type == "tel"
+            ? "Phone number should be in the format: +123456789234"
+            : null
+        }
       ></input>
     </label>
   );

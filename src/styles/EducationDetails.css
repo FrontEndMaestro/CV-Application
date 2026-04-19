@@ -1,0 +1,67 @@
+.expand {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background-color: white;
+  padding: 7px 15px;
+}
+
+.education-experience .delete {
+  background-color: white;
+  border: none;
+  position: absolute;
+  right: -10%;
+  top: 15px;
+}
+
+.expand h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.expand svg,
+.delete svg {
+  color: rgb(183, 181, 181);
+}
+.delete:hover > svg {
+  color: rgb(239, 70, 70);
+}
+
+.expand:hover,
+.delete:hover {
+  cursor: pointer;
+}
+
+.expand:hover > * {
+  color: rgb(26, 145, 240);
+}
+
+
+
+.add-education {
+  border: none;
+  background-color: white;
+  text-align: left;
+  margin-top: 10px;
+  width: 80%;
+  color: rgb(24, 133, 222);
+  font-weight: 600;
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.add-education:hover {
+  background-color: rgb(233, 244, 253);
+}
+
+.education-subheading {
+  margin-top: 15px;
+  margin-bottom: 10px;
+
+  font-weight: 500;
+  font-size: large;
+}

@@ -28,30 +28,29 @@ form {
   align-items: center;
 }
 
-form {
-  margin: auto 0;
-}
-
-button {
+.next {
   background-color: rgb(26, 145, 240);
   outline: none;
-  border: none;
   width: 30%;
   margin-bottom: 3vw;
   padding: 15px 10px;
   color: white;
   border-radius: 10px;
   border: 3px solid rgb(26, 145, 240);
-  margin-top: 35px;
+  margin-top: auto;
 }
 
-button:hover {
+form .next {
+  margin-top: 30px;
+}
+
+.next:hover {
   background-color: rgb(2, 133, 241);
   transform: scale(1.02);
   cursor: grab;
 }
 
-button:focus-visible {
+.next:focus-visible {
   border: 3px solid darkblue;
 }
 
