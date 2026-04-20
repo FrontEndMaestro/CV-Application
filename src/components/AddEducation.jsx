@@ -12,12 +12,60 @@ export default function AddEducation({ dataIndex, deleteEducation, addData }) {
     else setShowDetails(false);
   }
 
-  function changeHeading(event) {
-    let heading = document.getElementById(`${dataIndex}-heading`);
-    heading.textContent = event.target.value;
-    if (heading.textContent == "") {
-      heading.textContent = "(Not specified)";
+  function getAndSetData(inputType, value) {
+    let school, degree, stDate, enDate;
+    school = degree = stDate = enDate = "";
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    if (inputType == "school") {
+      school = value;
+      degree = degreeName;
+      stDate = startDate;
+      enDate = endDate;
+      setHeadingDisplay(value);
+    } else if (inputType == "degree") {
+      degree = value;
+      school = headingDisplay;
+      stDate = startDate;
+      enDate = endDate;
+      setDegree(value);
+    } else if (inputType == "st-date") {
+      stDate = value;
+      degree = degreeName;
+      school = headingDisplay;
+      enDate = endDate;
+      setStartDate(value);
+    } else if (inputType == "end-date") {
+      enDate = value;
+      stDate = startDate;
+      degree = degreeName;
+      school = headingDisplay;
+      setEndDate(value);
     }
+    let data = {
+      school: school,
+      degree: degree,
+      date:
+        enDate == ""
+          ? stDate == ""
+            ? ""
+            : `${monthNames[new Date(stDate).getMonth()]} ${new Date(stDate).getFullYear()} - Present`
+          : `${monthNames[new Date(stDate).getMonth()]} ${new Date(stDate).getFullYear()} - ${monthNames[new Date(enDate).getMonth()]} ${new Date(enDate).getFullYear()}`,
+    };
+
+    addData(dataIndex, data);
   }
 
   return (
