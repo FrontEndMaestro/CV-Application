@@ -1,15 +1,15 @@
+import { useState } from "react";
 import "../styles/addEducation.css";
 
-export default function AddEducation({ dataIndex, deleteEducation }) {
+export default function AddEducation({ dataIndex, deleteEducation, addData }) {
+  const [showDetails, setShowDetails] = useState(false);
+  const [headingDisplay, setHeadingDisplay] = useState("");
+  const [degreeName, setDegree] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   function displayDetails() {
-    let detailsDisplay = document.getElementById(`${dataIndex}div`);
-    let svg = document.getElementById(`${dataIndex}-svg`);
-    svg.classList.contains("rotate-svg")
-      ? svg.classList.remove("rotate-svg")
-      : svg.classList.add("rotate-svg");
-    detailsDisplay.style.display == "none"
-      ? (detailsDisplay.style.display = "block")
-      : (detailsDisplay.style.display = "none");
+    if (showDetails == false) setShowDetails(true);
+    else setShowDetails(false);
   }
 
   function changeHeading(event) {
@@ -21,12 +21,14 @@ export default function AddEducation({ dataIndex, deleteEducation }) {
   }
 
   return (
-    <div className="education-experience" id={dataIndex}>
+    <div className="education-experience" id={dataIndex + "-container"}>
       <button className="expand" onClick={displayDetails}>
-        <h2 id={dataIndex + "-heading"}>(Not specified)</h2>
+        <h2 id={dataIndex + "-heading"}>
+          {headingDisplay == "" ? "Not specified" : headingDisplay}
+        </h2>
 
         <svg
-          id={dataIndex + "-svg"}
+          className={showDetails ? "rotate-svg" : null}
           xmlns="http://www.w3.org/2000/svg"
           width="32"
           height="32"
@@ -51,35 +53,48 @@ export default function AddEducation({ dataIndex, deleteEducation }) {
           />
         </svg>
       </button>
-      <div
-        className="details-display"
-        style={{ display: "none" }}
-        id={dataIndex + "div"}
-      >
-        <div className="label-wrapper">
-          <label for="school-name">
-            School
-            <input
-              type="text"
-              id="school-name"
-              name="school"
-              onChange={changeHeading}
-            />
-          </label>
-          <label for="degree">
-            Degree
-            <input type="text" id="degree" name="degree" />
+      {showDetails && (
+        <div className="details-display" id={dataIndex + "div"}>
+          <div className="label-wrapper">
+            <label for="school-name">
+              School
+              <input
+                type="text"
+                id="school-name"
+                name="school"
+                onChange={() => getAndSetData("school", event.target.value)}
+              />
+            </label>
+            <label for="degree">
+              Degree
+              <input
+                type="text"
+                id="degree"
+                name="degree"
+                onChange={() => getAndSetData("degree", event.target.value)}
+              />
+            </label>
+          </div>
+
+          <label for="st-date" className="st-date">
+            Start & End Date
+            <div className="label-wrapper">
+              <input
+                type="date"
+                id="st-date"
+                name="start-date"
+                onChange={() => getAndSetData("st-date", event.target.value)}
+              />
+              <input
+                type="date"
+                id="end-date"
+                name="end-date"
+                onChange={() => getAndSetData("end-date", event.target.value)}
+              />
+            </div>
           </label>
         </div>
-
-        <label for="st-date" className="st-date">
-          Start & End Date
-          <div className="label-wrapper">
-            <input type="date" id="st-date" name="start-date" />
-            <input type="date" id="end-date" name="end-date" />
-          </div>
-        </label>
-      </div>
+      )}
     </div>
   );
 }
