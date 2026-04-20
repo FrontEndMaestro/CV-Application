@@ -1,30 +1,32 @@
 import "../styles/personalDetails.css";
 import Input from "./Input";
+import { setPersonalDetails } from "./Data";
 export default function PersonalDetails({ setSelected }) {
-  function formSubmission(event) {
-    event.preventDefault();
-    let span = document.querySelector(".missing-error");
-    let emailInput = document.querySelector("form input[type=email]");
-    let firstNameInput = document.querySelector(" #first-name");
-    let lastNameInput = document.querySelector(" #last-name");
-
-    if (
-      emailInput.validity.valueMissing ||
-      firstNameInput.validity.valueMissing ||
-      lastNameInput.validity.valueMissing
-    ) {
-      span.style.opacity = "1";
-    }
-
-    if (document.querySelector("form").checkValidity()) {
-      setSelected("education");
-    }
+  function formSubmission(formData) {
+    let fname = formData.get("first-name");
+    let lname = formData.get("last-name");
+    let email = formData.get("email");
+    let tel = formData.get("phone");
+    let city = formData.get("city");
+    let country = formData.get("country");
+    let linkedin = formData.get("linkedin");
+    let github = formData.get("github");
+    setPersonalDetails({
+      fname,
+      lname,
+      email,
+      tel,
+      city,
+      country,
+      linkedin,
+      github,
+    });
+    setSelected("education");
   }
 
   return (
-    <form>
+    <form action={formSubmission}>
       <h1>Personal Details</h1>
-      <span className="missing-error">Please fill all required fields *</span>
       <div className="input-wrapper">
         <Input name="first-name" labelText="First Name" type="text"></Input>
         <Input name="last-name" labelText="Last Name" type="text"></Input>
@@ -41,7 +43,7 @@ export default function PersonalDetails({ setSelected }) {
         <Input name="linkedin" labelText="Linkedin" type="url"></Input>
         <Input name="github" labelText="Github" type="url"></Input>
       </div>
-      <button className="next" type="submit" onClick={formSubmission}>
+      <button className="next" type="submit">
         Next
       </button>
     </form>
