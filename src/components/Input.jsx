@@ -1,6 +1,6 @@
 import "../styles/Input.css";
 
-export default function Input({ name, labelText, type }) {
+export default function Input({ name, labelText, type, value }) {
   const required =
     type == "email" || name.endsWith("name") || type == "tel" ? true : false;
   return (
@@ -39,6 +39,7 @@ export default function Input({ name, labelText, type }) {
             ? "Phone number should be in the format: +123456789234"
             : null
         }
+        defaultValue={value}
       ></input>
     </label>
   );

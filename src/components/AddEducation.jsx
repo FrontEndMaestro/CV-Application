@@ -1,12 +1,28 @@
 import { useState } from "react";
 import "../styles/addEducation.css";
 
-export default function AddEducation({ dataIndex, deleteEducation, addData }) {
+export default function AddEducation({
+  dataIndex,
+  id,
+  deleteEducation,
+  addData,
+  currentData,
+}) {
   const [showDetails, setShowDetails] = useState(false);
-  const [headingDisplay, setHeadingDisplay] = useState("");
-  const [degreeName, setDegree] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [headingDisplay, setHeadingDisplay] = useState(
+    currentData != "" ? currentData.school : "",
+  );
+
+  const [degreeName, setDegree] = useState(
+    currentData != "" ? currentData.degree : "",
+  );
+  const [startDate, setStartDate] = useState(
+    currentData != "" ? currentData.startDate : "",
+  );
+  const [endDate, setEndDate] = useState(
+    currentData != "" ? currentData.endDate : "",
+  );
+
   function displayDetails() {
     if (showDetails == false) setShowDetails(true);
     else setShowDetails(false);
@@ -55,8 +71,11 @@ export default function AddEducation({ dataIndex, deleteEducation, addData }) {
       setEndDate(value);
     }
     let data = {
+      id: id,
       school: school,
       degree: degree,
+      startDate: stDate,
+      endDate: enDate,
       date:
         enDate == ""
           ? stDate == ""
@@ -65,7 +84,7 @@ export default function AddEducation({ dataIndex, deleteEducation, addData }) {
           : `${monthNames[new Date(stDate).getMonth()]} ${new Date(stDate).getFullYear()} - ${monthNames[new Date(enDate).getMonth()]} ${new Date(enDate).getFullYear()}`,
     };
 
-    addData(dataIndex, data);
+    addData(dataIndex, data, id);
   }
 
   return (
@@ -111,6 +130,7 @@ export default function AddEducation({ dataIndex, deleteEducation, addData }) {
                 id="school-name"
                 name="school"
                 onChange={() => getAndSetData("school", event.target.value)}
+                defaultValue={currentData.school}
               />
             </label>
             <label for="degree">
@@ -120,6 +140,7 @@ export default function AddEducation({ dataIndex, deleteEducation, addData }) {
                 id="degree"
                 name="degree"
                 onChange={() => getAndSetData("degree", event.target.value)}
+                defaultValue={currentData.degree}
               />
             </label>
           </div>
@@ -132,12 +153,14 @@ export default function AddEducation({ dataIndex, deleteEducation, addData }) {
                 id="st-date"
                 name="start-date"
                 onChange={() => getAndSetData("st-date", event.target.value)}
+                defaultValue={currentData.startDate}
               />
               <input
                 type="date"
                 id="end-date"
                 name="end-date"
                 onChange={() => getAndSetData("end-date", event.target.value)}
+                defaultValue={currentData.endDate}
               />
             </div>
           </label>
