@@ -1,0 +1,22 @@
+label[for="job-title"] {
+  margin-right: 20px;
+}
+
+label[for="responsibilities"] {
+  width: 100%;
+  margin-top: 20px;
+}
+
+#responsibilities {
+  outline: none;
+  border: none;
+  background-color: var(--input-bg);
+  border-radius: 5px;
+  padding: 5px 10px;
+  max-width: 100%;
+  resize: none;
+}
+
+#responsibilities:focus {
+  border-bottom: 5px solid rgb(26, 145, 240);
+}
