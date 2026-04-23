@@ -12,9 +12,13 @@ export default function DisplayCV({ cvDetails }) {
           {cvDetails.tel != "" ? " | " : null}
           {cvDetails.tel}
           {cvDetails.github != "" ? " | " : null}
-          <a href={cvDetails.github}>Github</a>
+          {cvDetails.github != "" ? (
+            <a href={cvDetails.github}>Github</a>
+          ) : null}
           {cvDetails.linkedin != "" ? " | " : null}
-          <a href={cvDetails.linkedin}>Linkedin</a>
+          {cvDetails.linkedin != "" ? (
+            <a href={cvDetails.linkedin}>Linkedin</a>
+          ) : null}
         </div>
         <div className="education-container">
           {cvDetails.education.length != 0 ? (
@@ -58,6 +62,44 @@ export default function DisplayCV({ cvDetails }) {
                           </>
                         );
                       })}
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          ) : null}
+        </div>
+        <div className="project-container">
+          {cvDetails.projects.length != 0 ? (
+            <>
+              <h2>Projects</h2>
+              <hr />
+              {cvDetails.projects.map((project, index) => {
+                return (
+                  <div key={index} className="project-display">
+                    <div className="project-heading">
+                      <div className="project-info">
+                        <strong>{project.name}</strong>
+                      </div>
+                    </div>
+                    <div className="project-details">
+                      {project.description.split("\n").map((sentence) => {
+                        return (
+                          <>
+                            {sentence}
+                            <br />
+                          </>
+                        );
+                      })}
+                    </div>
+                    <div className="skills-used">
+                      {project.skillsUsed != "" ? (
+                        <>
+                          <strong>Skills:</strong>
+                          <br />
+                          {project.skillsUsed}
+                        </>
+                      ) : null}
                     </div>
                   </div>
                 );
