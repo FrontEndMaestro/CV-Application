@@ -2,6 +2,8 @@
 
 This is a web application built with React that lets you create and preview your resume in real-time. It uses a straightforward, step-by-step form to help you seamlessly enter your personal information, education, work experience, and projects.
 
+[Live Preview](https://cvapplication-odinproject.netlify.app/)
+
 ## Features
 
 * **Step-by-Step Navigation:** A guided process with a progress bar that takes you through each section of your resume.
