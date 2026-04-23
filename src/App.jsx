@@ -15,6 +15,7 @@ function App() {
     github: "",
     education: [],
     experiences: [],
+    projects: [],
   });
 
   function setPersonalDetails(personalDetailsObj) {
@@ -46,7 +47,19 @@ function App() {
       newData.experiences.push(experienceData);
     }
     setCvDetails(newData);
+  }
 
+  function setProjectData(projectData) {
+    let index = cvDetails.projects.findIndex(
+      (projectOption) => projectData.id == projectOption.id,
+    );
+    let newData = { ...cvDetails };
+    if (index != -1) {
+      newData.projects[index] = projectData;
+    } else {
+      newData.projects.push(projectData);
+    }
+    setCvDetails(newData);
   }
 
   return (
@@ -56,6 +69,7 @@ function App() {
         setPersonalDetails={setPersonalDetails}
         setEducationData={setEducationData}
         setExperienceData={setExperienceData}
+        setProjectData={setProjectData}
       ></AddDetails>
       <Display cvDetails={cvDetails}></Display>
     </>
