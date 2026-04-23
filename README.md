@@ -1,16 +1,32 @@
-# React + Vite
+# CV Builder Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web application built with React that lets you create and preview your resume in real-time. It uses a straightforward, step-by-step form to help you seamlessly enter your personal information, education, work experience, and projects.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Step-by-Step Navigation:** A guided process with a progress bar that takes you through each section of your resume.
+* **Flexible Sections:** You can easily add, edit, or remove multiple schools, past jobs, and projects as needed.
+* **Live Preview:** Your resume updates instantly on the screen as you type in your information.
+* **Data Validation:** The form automatically checks to make sure required fields are filled out and that things like emails and phone numbers are formatted correctly.
+* **Data Management:** Uses React to securely hold and organize all your information as you move back and forth between different steps of the form.
 
-## React Compiler
+## Project Context
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This is a project from The Odin Project. It was built to practice core React concepts, such as managing state, working with components, passing data between them, and conditionally rendering different parts of the screen.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **React:** Used to build the user interface and handle the form logic.
+* **CSS:** Used to style the app and make the generated resume look clean and professional.
+* **JavaScript:** Powers the background logic, like managing the data you enter and formatting your output.
+
+## How to Run This Project Locally
+
+If you want to run this application on your own computer, open your terminal, clone the repository, and run these commands:
+
+```bash
+# Install the required dependencies
+npm install
+
+# Start the development server
+npm run dev
