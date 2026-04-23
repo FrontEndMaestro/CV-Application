@@ -1,20 +1,20 @@
 input {
-  height: 6vh;
+  height: 3vw;
   outline: none;
   border: none;
   background-color: var(--input-bg);
-  border-radius: 5px;
   padding: 5px 10px;
+  border: 2px solid var(--input-bg);
+  transition: border-bottom 0.25s linear;
 }
 
 label {
   display: flex;
   flex-direction: column;
-  width: 40%;
 }
 
 input:focus {
-  border-bottom: 5px solid rgb(26, 145, 240);
+  border-bottom: 2px solid rgb(26, 145, 240);
 }
 
 label p {
@@ -27,4 +27,8 @@ input:user-invalid {
   border: 2px solid rgb(248, 133, 133);
 }
 
-
+@media (max-width: 800px) {
+  input {
+    height: 6vw;
+  }
+}

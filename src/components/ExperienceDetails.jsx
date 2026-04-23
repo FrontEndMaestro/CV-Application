@@ -78,7 +78,7 @@ export default function ExperienceDetails({
         setExperienceData(element);
       });
     setProgress("100");
-    setSelected("complete");
+    setSelected("project");
   }
 
   return (

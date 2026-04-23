@@ -64,12 +64,20 @@ h6 {
 
 #root {
   background-color: rgb(229, 233, 243);
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
-
   width: 100%;
 }
 
 html {
   overflow: hidden;
+}
+
+@media (max-width: 800px) {
+  #root {
+    flex-direction: column;
+  }
+  html {
+    overflow: auto;
+  }
 }

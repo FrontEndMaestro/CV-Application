@@ -12,12 +12,13 @@
   background-color: white;
   border: none;
   position: absolute;
-  right: -10%;
+  right: -8%;
   top: 15px;
+  padding: 0;
 }
 
 .expand h2 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   overflow: hidden;
 }
@@ -35,11 +36,13 @@
   cursor: pointer;
 }
 
+.expand > * {
+  transition: color 0.2s ease-out;
+}
+
 .expand:hover > * {
   color: rgb(26, 145, 240);
 }
-
-
 
 .add-education {
   border: none;
@@ -63,5 +66,5 @@
   margin-bottom: 10px;
 
   font-weight: 500;
-  font-size: large;
+  font-size: 0.8rem;
 }

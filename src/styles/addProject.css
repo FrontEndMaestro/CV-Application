@@ -1,0 +1,10 @@
+.details-display > label[for="name"] {
+  margin-right: 20px;
+  width: 50%;
+}
+
+label[for="description"],
+label[for="skills"] {
+  width: 100%;
+  margin-top: 20px;
+}
