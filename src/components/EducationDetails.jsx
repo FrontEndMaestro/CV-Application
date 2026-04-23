@@ -9,6 +9,7 @@ export default function EducationDetails({
   setSelected,
   setProgress,
   setEducationData,
+  deleteData,
 }) {
   const [educationOptions, setEducationOptions] = useState(
     cvDetails.education.length != 0
@@ -57,10 +58,12 @@ export default function EducationDetails({
     setEducationOptions(newEducationOptionsObj);
   }
 
-  function deleteEducationFromArr(index) {
-    let elementKey = educationOptions[index].id;
-    let newObj = educationOptions.filter((element) => element.id != elementKey);
-    setEducationOptions(newObj);
+  function deleteEducationFromArr(id) {
+    let newEducationArray = educationOptions.filter(
+      (element) => element.id != id,
+    );
+    setEducationOptions(newEducationArray);
+    deleteData(newEducationArray, "education");
   }
 
   function submitEducationData() {

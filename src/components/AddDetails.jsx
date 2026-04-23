@@ -10,6 +10,7 @@ export default function AddDetails({
   setEducationData,
   setExperienceData,
   setProjectData,
+  deleteData,
 }) {
   const [selected, setSelected] = useState("personal");
   const [progress, setProgress] = useState("25");
@@ -48,6 +49,7 @@ export default function AddDetails({
             setSelected={setSelected}
             setProgress={setProgress}
             setEducationData={setEducationData}
+            deleteData={deleteData}
           ></EducationDetails>
         ) : null}
         {selected == "experience" ? (
@@ -56,6 +58,7 @@ export default function AddDetails({
             setSelected={setSelected}
             setProgress={setProgress}
             setExperienceData={setExperienceData}
+            deleteData={deleteData}
           ></ExperienceDetails>
         ) : null}
 
@@ -65,6 +68,7 @@ export default function AddDetails({
             setSelected={setSelected}
             setProgress={setProgress}
             setProjectData={setProjectData}
+            deleteData={deleteData}
           ></ProjectDetails>
         ) : null}
         {selected != "personal" ? (

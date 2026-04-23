@@ -75,7 +75,7 @@ export default function AddProject({
           />
         </svg>
       </button>
-      <button className="delete" onClick={() => deleteProject(dataIndex)}>
+      <button className="delete" onClick={() => deleteProject(id)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

@@ -107,7 +107,7 @@ export default function AddEducation({
           />
         </svg>
       </button>
-      <button className="delete" onClick={() => deleteEducation(dataIndex)}>
+      <button className="delete" onClick={() => deleteEducation(id)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

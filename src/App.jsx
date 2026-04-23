@@ -36,6 +36,24 @@ function App() {
     setCvDetails(newData);
   }
 
+  function deleteData(newArray, type) {
+    if (type == "education") {
+      let newData = { ...cvDetails };
+      newData.education = newArray;
+      setCvDetails(newData);
+    }
+    if (type == "experience") {
+      let newData = { ...cvDetails };
+      newData.experiences = newArray;
+      setCvDetails(newData);
+    }
+    if (type == "projects") {
+      let newData = { ...cvDetails };
+      newData.projects = newArray;
+      setCvDetails(newData);
+    }
+  }
+
   function setExperienceData(experienceData) {
     let index = cvDetails.experiences.findIndex(
       (experienceOption) => experienceData.id == experienceOption.id,
@@ -70,6 +88,7 @@ function App() {
         setEducationData={setEducationData}
         setExperienceData={setExperienceData}
         setProjectData={setProjectData}
+        deleteData={deleteData}
       ></AddDetails>
       <Display cvDetails={cvDetails}></Display>
     </>

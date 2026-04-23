@@ -6,6 +6,7 @@ export default function ProjectDetails({
   setSelected,
   setProgress,
   setProjectData,
+  deleteData,
 }) {
   const [projectOptions, setProjectOptions] = useState(
     cvDetails.projects.length != 0
@@ -48,10 +49,10 @@ export default function ProjectDetails({
     setProjectOptions(newProjectOptionsObj);
   }
 
-  function deleteProject(index) {
-    let elementKey = projectOptions[index].id;
-    let newObj = projectOptions.filter((element) => element.id != elementKey);
-    setProjectOptions(newObj);
+  function deleteProject(id) {
+    let newProjectArray = projectOptions.filter((element) => element.id != id);
+    setProjectOptions(newProjectArray);
+    deleteData(newProjectArray, "projects");
   }
 
   function submitProjectData() {

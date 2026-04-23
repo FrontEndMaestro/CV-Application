@@ -6,6 +6,7 @@ export default function ExperienceDetails({
   setSelected,
   setProgress,
   setExperienceData,
+  deleteData,
 }) {
   const [experienceOptions, setExperienceOptions] = useState(
     cvDetails.experiences.length != 0
@@ -56,12 +57,12 @@ export default function ExperienceDetails({
     setExperienceOptions(newExperienceOptionsObj);
   }
 
-  function deleteExperience(index) {
-    let elementKey = experienceOptions[index].id;
-    let newObj = experienceOptions.filter(
-      (element) => element.id != elementKey,
+  function deleteExperience(id) {
+    let newExperienceArray = experienceOptions.filter(
+      (element) => element.id != id,
     );
-    setExperienceOptions(newObj);
+    setExperienceOptions(newExperienceArray);
+    deleteData(newExperienceArray, "experience");
   }
 
   function submitExperienceData() {
