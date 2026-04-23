@@ -136,78 +136,77 @@ export default function AddExperience({
           />
         </svg>
       </button>
-      {showDetails && (
-        <div className="details-display" id={dataIndex + "div"}>
-          <div className="label-wrapper">
-            <label for="job-title">
-              Job Title
-              <input
-                type="text"
-                id="job-title"
-                name="job-title"
-                onChange={() => getAndSetData("jobTitle", event.target.value)}
-                defaultValue={jobTitle}
-              />
-            </label>
-            <label for="company">
-              Company Name
-              <input
-                type="text"
-                id="company"
-                name="company"
-                onChange={() => getAndSetData("company", event.target.value)}
-                defaultValue={companyName}
-              />
-            </label>
-          </div>
-
-          <label for="st-date" className="st-date">
-            Start & End Date
-            <div className="label-wrapper">
-              <input
-                type="date"
-                id="st-date"
-                name="start-date"
-                onChange={() => getAndSetData("st-date", event.target.value)}
-                defaultValue={startDate}
-              />
-              <input
-                type="date"
-                id="end-date"
-                name="end-date"
-                onChange={() => getAndSetData("end-date", event.target.value)}
-                defaultValue={endDate}
-              />
-            </div>
+      <div
+        className={`details-display ${showDetails ? "open" : ""}`}
+        id={dataIndex + "div"}
+      >
+        <div className="label-wrapper">
+          <label for="job-title">
+            Job Title
+            <input
+              type="text"
+              id="job-title"
+              name="job-title"
+              onChange={() => getAndSetData("jobTitle", event.target.value)}
+              defaultValue={jobTitle}
+            />
           </label>
-
-          <label for="responsibilities">
-            <textarea
-              name="responsibilities"
-              id="responsibilities"
-              rows="5"
-              onKeyUp={() => {
-                if (event.keyCode == 13) {
-                  return (event.target.value += "• ");
-                }
-                if (event.target.value == "")
-                  return (event.target.value += "• ");
-              }}
-              onFocus={() => {
-                if (event.target.value == "")
-                  return (event.target.value = "• ");
-              }}
-              onBlur={() => {
-                if (event.target.value == "• " || event.target.value == "•")
-                  return (event.target.value = "");
-              }}
-              placeholder="e.g., Managed a team of 5 and increased Q3 sales by 15%..."
-              onChange={() => getAndSetData("description", event.target.value)}
-              defaultValue={description}
-            ></textarea>
+          <label for="company">
+            Company Name
+            <input
+              type="text"
+              id="company"
+              name="company"
+              onChange={() => getAndSetData("company", event.target.value)}
+              defaultValue={companyName}
+            />
           </label>
         </div>
-      )}
+
+        <label for="st-date" className="st-date">
+          Start & End Date
+          <div className="label-wrapper">
+            <input
+              type="date"
+              id="st-date"
+              name="start-date"
+              onChange={() => getAndSetData("st-date", event.target.value)}
+              defaultValue={startDate}
+            />
+            <input
+              type="date"
+              id="end-date"
+              name="end-date"
+              onChange={() => getAndSetData("end-date", event.target.value)}
+              defaultValue={endDate}
+            />
+          </div>
+        </label>
+
+        <label for="responsibilities">
+          <textarea
+            name="responsibilities"
+            id="responsibilities"
+            rows="5"
+            onKeyUp={() => {
+              if (event.keyCode == 13) {
+                return (event.target.value += "• ");
+              }
+              if (event.target.value == "") return (event.target.value += "• ");
+            }}
+            onFocus={() => {
+              if (event.target.value == "") return (event.target.value = "• ");
+            }}
+            onBlur={() => {
+              if (event.target.value == "• " || event.target.value == "•")
+                return (event.target.value = "");
+            }}
+            placeholder="e.g., Managed a team of 5 and increased Q3 sales by 15%..."
+            onChange={() => getAndSetData("description", event.target.value)}
+            defaultValue={description}
+          ></textarea>
+        </label>
+      </div>
     </div>
   );
 }

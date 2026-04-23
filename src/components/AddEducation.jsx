@@ -120,52 +120,54 @@ export default function AddEducation({
           />
         </svg>
       </button>
-      {showDetails && (
-        <div className="details-display" id={dataIndex + "div"}>
-          <div className="label-wrapper">
-            <label for="school-name">
-              School
-              <input
-                type="text"
-                id="school-name"
-                name="school"
-                onChange={() => getAndSetData("school", event.target.value)}
-                defaultValue={currentData.school}
-              />
-            </label>
-            <label for="degree">
-              Degree
-              <input
-                type="text"
-                id="degree"
-                name="degree"
-                onChange={() => getAndSetData("degree", event.target.value)}
-                defaultValue={currentData.degree}
-              />
-            </label>
-          </div>
 
-          <label for="st-date" className="st-date">
-            Start & End Date
-            <div className="label-wrapper">
-              <input
-                type="date"
-                id="st-date"
-                name="start-date"
-                onChange={() => getAndSetData("st-date", event.target.value)}
-                defaultValue={currentData.startDate}
-              />
-              <input
-                type="date"
-                id="end-date"
-                name="end-date"
-                onChange={() => getAndSetData("end-date", event.target.value)}
-                defaultValue={currentData.endDate}
-              />
-            </div>
+      <div
+        className={`details-display ${showDetails ? "open" : ""}`}
+        id={dataIndex + "div"}
+      >
+        <div className="label-wrapper">
+          <label for="school-name">
+            School
+            <input
+              type="text"
+              id="school-name"
+              name="school"
+              onChange={() => getAndSetData("school", event.target.value)}
+              defaultValue={currentData.school}
+            />
+          </label>
+          <label for="degree">
+            Degree
+            <input
+              type="text"
+              id="degree"
+              name="degree"
+              onChange={() => getAndSetData("degree", event.target.value)}
+              defaultValue={currentData.degree}
+            />
           </label>
         </div>
-      )}
+
+        <label for="st-date" className="st-date">
+          Start & End Date
+          <div className="label-wrapper">
+            <input
+              type="date"
+              id="st-date"
+              name="start-date"
+              onChange={() => getAndSetData("st-date", event.target.value)}
+              defaultValue={currentData.startDate}
+            />
+            <input
+              type="date"
+              id="end-date"
+              name="end-date"
+              onChange={() => getAndSetData("end-date", event.target.value)}
+              defaultValue={currentData.endDate}
+            />
+          </div>
+        </label>
+      </div>
     </div>
   );
 }
